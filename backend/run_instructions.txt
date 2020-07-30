@@ -1,0 +1,27 @@
+Install python venv:
+* pip install virtualenv
+* virtualenv venv
+* source venv/bin/activate
+* pip install -r requirements.txt
+
+To set up on new system:
+* Open terminal, run: source venv/bin/activate
+* Then run: pip install -r requirements.txt
+* In routes/finStatements.js, configure the paths to direct instead of relative path.
+options {
+    pythonPath: ../app/backend/venv/bin/python
+    scriptPath: ../app/backend/scripts
+}
+
+If there are certificate errors (SSL CERTIFICATE VERIFY FAILED):
+* pip install certifi
+* /Applications/Python\ 3.8/Install\ Certificates.command
+
+To run:
+* Open terminal, run: source venv/bin/activate
+* Then run: npx nodemon server.js
+
+If there are EADDRINUSE error, where port i.e. 3000 is already in use:
+* lsof -i tcp:3000
+* sudo kill -9 PID
+where PID is the process using the port
